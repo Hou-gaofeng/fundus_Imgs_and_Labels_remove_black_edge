@@ -1,6 +1,7 @@
 import h5py
 import os
 import cv2
+import torch
 
 '''
 PIL 读取的图片为RGB通道的Image格式
