@@ -1,0 +1,1 @@
+If you have fundus image and annotated image need to deal with the black edge, you can run this code to achieve!
