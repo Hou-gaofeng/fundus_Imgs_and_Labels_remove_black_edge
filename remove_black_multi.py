@@ -12,13 +12,13 @@ def convert(fname, label_EX, label_HE, label_MA, label_SE):
     img_MA = Image.open(label_MA)
     img_SE = Image.open(label_SE)
     debug = 0
-    # blurred = img.filter(ImageFilter.BLUR) 这里学长用了blur后的，可能可以更均匀的识别背景？ 我没有很明白
+    # blurred = img.filter(ImageFilter.BLUR) 
     # ba = np.array(blurred)
     ba = np.array(img)
     h, w, _ = ba.shape
     if debug > 0:
         print("h=%d, w=%d" % (h, w))
-    # 这里的1.2, 32, 5, 0.8都是后续可以调整的参数。 只是暂时觉得用这个来提取背景不错。
+    # w = best[1.2, 32, 5, 0.8]
     if w > 1.2 * h:
         left_max = ba[:, : w // 32, :].max(axis=(0, 1)).astype(int)
         right_max = ba[:, - w // 32:, :].max(axis=(0, 1)).astype(int)
